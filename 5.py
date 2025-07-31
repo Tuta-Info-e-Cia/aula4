@@ -23,5 +23,5 @@ try:
         print("Reprovado")
     
 except:
-    print('Reprovado')
+    print("Erro: Você deve digitar números válidos para as notas.")
     

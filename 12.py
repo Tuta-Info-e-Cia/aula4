@@ -17,7 +17,7 @@ Salário Bruto menos os descontos. O programa deverá pedir ao usuário o valor 
     """
 
 valor_hora = float(input('Digite o valor da hora trabalhada - R$:'))
-qt_hora = float(input('Digite a quantidade de horas trabalhadas'))
+qt_hora = float(input('Digite a quantidade de horas trabalhadas no mês - '))
 salario_bruto = valor_hora * qt_hora
 print(f"Salario Bruto: {valor_hora}*{qt_hora} - R$:{salario_bruto}")
 if salario_bruto <= 900:
@@ -33,5 +33,17 @@ else:
   ir = salario_bruto * 0.2
   irtexto = '20%'
   
-print(f'(-) IR {irtexto}:R${ir}')
+
+inss = salario_bruto * 0.10
+fgts = salario_bruto * 0.11
+total_descontos = ir + inss
+salario_liquido = salario_bruto - total_descontos
+
+print("\n------ FOLHA DE PAGAMENTO ------")
+print(f"Salário Bruto: ({valor_hora:.2f} * {qt_hora})     : R$ {salario_bruto:.2f}")
+print(f"(-) IR ({irtexto}){' ' * (23 - len(irtexto))}: R$ {ir:.2f}")
+print(f"(-) INSS (10%)                  : R$ {inss:.2f}")
+print(f"FGTS (11%)                      : R$ {fgts:.2f}")
+print(f"Total de descontos              : R$ {total_descontos:.2f}")
+print(f"Salário Líquido                 : R$ {salario_liquido:.2f}")
 
